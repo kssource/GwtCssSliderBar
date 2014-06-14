@@ -1,0 +1,406 @@
+/** Add css rules here for your application. */
+
+
+
+
+
+.sbThemeDefault{
+/* 	background-color: gray; */
+
+}
+
+ /* horiz */
+.sbThemeDefault .sbHorizontal{
+	display: flex;
+	
+/* 	width: 500px; */
+	height: 20px;
+	
+}
+
+.sbThemeDefault .sbHorizontal .sbPrevButton{
+	width: 0px;
+	height: 0px;
+	border-style: solid;
+	border-width: 10px 20px 10px 0;
+	border-color: transparent #ff6666 transparent transparent;
+	
+    cursor: pointer;
+	outline: 0; 
+}
+
+
+
+/* hover */ 
+.sbThemeDefault .sbHorizontal .sbPrevButton:HOVER{
+	border-color: transparent #ff0000 transparent transparent;
+}
+
+.sbThemeDefault .sbHorizontal .sbNextButton{
+	width: 0px;
+	height: 0px;
+	border-style: solid;
+	border-width: 10px 0 10px 20px;
+	border-color: transparent transparent transparent #ff6666;
+    cursor: pointer;
+	outline: 0; 
+}
+
+
+/* hover */ 
+.sbThemeDefault .sbHorizontal .sbNextButton:HOVER{
+	border-color: transparent transparent transparent #ff0000;
+}
+
+/* down */
+.sbThemeDefault .sbButton:ACTIVE{
+	position:relative;
+	top:1px;
+}
+
+
+
+ /* vertical */
+.sbThemeDefault .sbVertical{
+	display:block;
+	
+	width: 500px;
+	height: 20px;
+	
+}
+
+.sbThemeDefault .sbVertical .sbPrevButton{
+	width: 0px;
+	height: 0px;
+	border-style: solid;
+	border-width: 0 10px 20px 10px;
+	border-color: transparent transparent #ff6666 transparent;
+    cursor: pointer;
+	outline: 0; 
+}
+
+/* hover */ 
+.sbThemeDefault .sbVertical .sbPrevButton:HOVER{
+	border-color: transparent transparent #ff0000 transparent;
+}
+
+
+.sbThemeDefault .sbVertical .sbNextButton{
+	width: 0px;
+	height: 0px;
+	border-style: solid;
+	border-width: 20px 10px 0 10px;
+	border-color: #ff6666 transparent transparent transparent;
+    cursor: pointer;
+	outline: 0; 
+}
+
+/* hover */ 
+.sbThemeDefault .sbVertical .sbNextButton:HOVER{
+	border-color: #ff0000 transparent transparent transparent ;
+}
+
+
+.sbThemeDefault .sbHorizontal .sbMarkBarContainer{
+ 	display: flex; 
+/* 	background-color: yellow; */ 
+}
+
+.sbThemeDefault .sbMarkNumber{
+/* 	display: none; */
+
+/*  	background-color: green; */ 
+/* 
+    cursor: pointer;
+	outline: 0;
+
+ */
+ 	text-align: center;
+	vertical-align: middle;	 
+}
+
+.sbThemeDefault .sbMarkWrapper{
+	
+/*  	background-color: gray; */ 
+ 	width: 20px;
+ 	height: 20px;
+
+    cursor: pointer;
+	outline: 0; 
+}
+
+
+.sbThemeDefault .sbMarkSelected {
+	font-weight: bolder;
+}
+
+/* ////////////////////////////////////////////////////////////// */
+
+/*  sbTheme1       */
+
+.sbTheme1{
+ 	background-color: #333333; 
+	width: 300px;
+	height: 17px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+ /* horiz */
+.sbTheme1 .sbHorizontal{
+	display: inline-block;
+}
+
+.sbTheme1 .sbPrevButton{
+	display: none;
+}
+
+.sbTheme1 .sbNextButton{
+	display: none;
+}
+
+ /* vertical */
+.sbTheme1 .sbVertical{
+	display:block;
+}
+
+.sbTheme1 .sbHorizontal .sbMarkBarContainer{
+ 	display: flex; 
+}
+
+.sbTheme1 .sbMarkWrapper{
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid #FFFFFF;
+    border-radius: 10px;
+    cursor: pointer;
+    display: inline-block;
+    height: 10px;
+    margin: 1px;
+    text-indent: -999px;
+    width: 10px;
+	outline: 0; 
+}
+
+.sbTheme1 .sbMarkNumber{
+	display: none;
+}
+
+.sbTheme1 .sbMarkSelected {
+    background-color: #FFFFFF;
+    height: 12px;
+    margin: 0;
+    width: 12px;
+}
+
+
+/* ///////////////////////////////////////////////////////////////////////////////////////// */
+
+/* sbTheme2, next/prev buttons, numbered mark */
+.sbTheme2{
+	text-align: center;
+}
+
+ /* horiz */
+.sbTheme2 .sbHorizontal{
+	display: inline-flex;
+	
+	height: 20px;
+	
+}
+
+.sbTheme2 .sbButton{
+	border-radius: 7px; 
+	width: 0px;
+	height: 0px;
+	border-style: solid;
+    cursor: pointer;
+	outline: 0;
+	
+}
+
+
+.sbTheme2 .sbHorizontal .sbPrevButton{
+	border-width: 10px 20px 10px 0;
+	border-color: transparent #ff6666 transparent transparent;
+	
+	margin-right: 5px; 
+}
+
+
+/* hover */ 
+.sbTheme2 .sbHorizontal .sbPrevButton:HOVER{
+	border-color: transparent #ff0000 transparent transparent;
+}
+
+.sbTheme2 .sbHorizontal .sbNextButton{
+	border-width: 10px 0 10px 20px;
+	border-color: transparent transparent transparent #ff6666;
+	margin-left: 5px; 
+}
+
+
+/* hover */ 
+.sbTheme2 .sbHorizontal .sbNextButton:HOVER{
+	border-color: transparent transparent transparent #ff0000;
+}
+
+/* down ACTIVE  */
+.sbTheme2 .sbButton:ACTIVE{
+  	position:relative;
+	top:1px;
+}
+
+
+
+ /* vertical */
+.sbTheme2 .sbVertical{
+	display:block;
+}
+
+.sbTheme2 .sbVertical .sbPrevButton{
+	border-width: 0 10px 20px 10px;
+	border-color: transparent transparent #ff6666 transparent;
+	margin-bottom: 5px; 
+}
+
+/* hover */ 
+.sbTheme2 .sbVertical .sbPrevButton:HOVER{
+	border-color: transparent transparent #ff0000 transparent;
+}
+
+
+.sbTheme2 .sbVertical .sbNextButton{
+	border-width: 20px 10px 0 10px;
+	border-color: #ff6666 transparent transparent transparent;
+	margin-top: 5px; 
+	
+}
+
+/* hover */ 
+.sbTheme2 .sbVertical .sbNextButton:HOVER{
+	border-color: #ff0000 transparent transparent transparent ;
+}
+
+
+.sbTheme2 .sbHorizontal .sbMarkBarContainer{
+ 	display: flex; 
+}
+
+.sbTheme2 .sbMarkNumber{
+ 	text-align: center;
+	vertical-align: middle;	 
+}
+
+.sbTheme2 .sbMarkWrapper{
+ 	width: 20px;
+ 	height: 20px;
+
+    cursor: pointer;
+	outline: 0; 
+}
+
+
+.sbTheme2 .sbMarkSelected {
+   	font-weight: bolder;
+	border: 1px solid red;
+	border-radius: 10px;
+	border-style: dashed;
+	box-shadow: 5px 5px 4px #888888; 
+}
+
+/* ////////////////////////////////////////////////////////////// */
+
+.sbTheme4{
+	margin-bottom: 20px;
+	outline: 0;
+}
+
+ /* horiz */
+.sbTheme4 .sbHorizontal{
+	text-align: center;
+	position: relative;
+}
+
+.sbTheme4 .sbPrevButton{
+	width: 32px;
+	height: 32px;
+	display: inline-block;
+	vertical-align: middle;
+	
+	background-image: url("images/theme4/left.png");
+	outline: 0;
+}
+
+
+/* hover */ 
+.sbTheme4 .sbPrevButton:HOVER{
+}
+
+.sbTheme4 .sbNextButton{
+	width: 32px;
+	height: 32px;
+	display: inline-block;
+	vertical-align: middle;
+	
+	background-image: url("images/theme4/right.png");
+	outline: 0;
+}
+
+
+/* hover */ 
+.sbTheme4 .sbNextButton:HOVER{
+}
+
+/* down ACTIVE  */
+.sbTheme4 .sbButton:ACTIVE{
+}
+
+
+
+.sbTheme4 .sbMarkBarContainer{
+	position: relative;
+	top: 1px;
+	
+	display: inline-block;
+	vertical-align: middle;
+	line-height: 0;
+	
+	height: 14px;
+	background-image: url("images/theme4/line14.png");
+	background-repeat: repeat-x;
+	
+	border-radius: 36%; 
+}
+
+.sbTheme4 .sbMarkNumber{
+	display: none;
+}
+
+.sbTheme4 .sbMarkWrapper{
+	position: relative;
+	top: 4px;
+
+	background-color: #417300;
+	width: 12px;
+	height: 12px;
+	
+	display: inline-block;
+	outline: 0;
+	
+	margin: 1px 10px ;
+	border-radius: 50%; 
+}
+
+
+.sbTheme4 .sbMarkSelected {
+	position: relative;
+	top: 18px;
+ 	background-color: transparent; 
+	background-image: url("images/theme4/drop12_1.png");
+	height: 12px;
+	transition: all 0.5s;
+}
+
+/* ////////////////////////////////////////////////////////////// */
+
+

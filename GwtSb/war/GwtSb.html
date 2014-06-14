@@ -1,0 +1,565 @@
+<!doctype html>
+<!-- The DOCTYPE declaration above will set the     -->
+<!-- browser's rendering engine into                -->
+<!-- "Standards Mode". Replacing this declaration   -->
+<!-- with a "Quirks Mode" doctype is not supported. -->
+
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <!--                                                               -->
+    <!-- Consider inlining CSS to reduce the number of requested files -->
+    <!--                                                               -->
+    <link type="text/css" rel="stylesheet" href="GwtSb.css">
+    <link type="text/css" rel="stylesheet" href="sbThemes.css">
+
+    <!--                                           -->
+    <!-- Any title is fine                         -->
+    <!--                                           -->
+    <title>Web Application Starter Project</title>
+    
+    <!--                                           -->
+    <!-- This script loads your compiled module.   -->
+    <!-- If you add any GWT meta tags, they must   -->
+    <!-- be added before this line.                -->
+    <!--                                           -->
+    <script type="text/javascript" language="javascript" src="gwtsb/gwtsb.nocache.js"></script>
+  </head>
+
+
+  <body>
+
+    <!-- OPTIONAL: include this if you want history support -->
+    <iframe src="javascript:''" id="__gwt_historyFrame" tabIndex='-1' style="position:absolute;width:0;height:0;border:0"></iframe>
+    
+    <!-- RECOMMENDED if your web app will not function without JavaScript enabled -->
+    <noscript>
+      <div style="width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif">
+        Your web browser must have JavaScript enabled
+        in order for this application to display correctly.
+      </div>
+    </noscript>
+
+    <h1>Web Application Starter Project</h1>
+
+	<section>
+		<div>
+			<h2>GwtCssSliderBar Demo</h2>
+			<div>
+				<div>
+					<p>GwtCssSliderBar is simple GWT component that is completely styled with css.</p>
+				</div>
+				
+			</div>
+			
+		</div>
+	</section>
+	
+	<section class="exampleWrapper">
+		<div class="colLeft">
+			<h4>Example 1</h4>
+		
+			<p>Usage:</p>
+			<p>In your java code: <br /></p>
+			
+			<div class="scroll">
+				<pre>
+SliderBarWidget barWidget = new SliderBarWidget(count);
+panel.add(barWidget);
+
+barWidget.addChangeListener(new SliderValueChangedListener() {
+	@Override
+	public void onChange(SliderValueChangedEvent e) {
+		yourHandler(e.getValue());
+	}
+});
+				</pre>
+			</div>
+				
+			<p>
+				That create a SideBar with mark count, default theme "sbTheme1", horizontal orientation, and non-cyclic.<br />
+				Component handles click- and key-events: left, top, end, etc.
+			</p>
+
+			<p>
+				Complete code:
+			</p>
+			
+			<div class="scroll">
+				<pre><code >
+Test1.java
+				
+package de.ks.sliderbar.client;
+
+import com.google.gwt.event.dom.client.KeyDownEvent;
+import com.google.gwt.event.dom.client.KeyDownHandler;
+import com.google.gwt.user.client.ui.DeckPanel;
+import com.google.gwt.user.client.ui.FocusPanel;
+import com.google.gwt.user.client.ui.Image;
+import com.google.gwt.user.client.ui.Panel;
+import com.google.gwt.user.client.ui.SimplePanel;
+import com.google.gwt.user.client.ui.VerticalPanel;
+
+import de.ks.sliderbar.client.widget.SliderBarWidget;
+import de.ks.sliderbar.client.widget.SliderValueChangedEvent;
+import de.ks.sliderbar.client.widget.SliderValueChangedListener;
+
+public class Test1 extends VerticalPanel{
+
+	
+	private SliderBarWidget barWidget;
+	private DeckPanel deckPanel;
+	private Panel deckPanelWrapper;
+
+	public Test1() {
+		init();
+	}
+
+	private void init() {
+		
+		deckPanelWrapper = createTestDeckPanel();
+		int count = deckPanel.getWidgetCount();
+		
+		barWidget = new SliderBarWidget(count);
+
+		this.add(barWidget);
+
+		barWidget.addChangeListener(new SliderValueChangedListener() {
+			@Override
+			public void onChange(SliderValueChangedEvent e) {
+				sliderValueChanged(e.getValue());
+			}
+		});
+		
+		this.add(deckPanelWrapper);
+		
+		deckPanel.showWidget(0);
+
+	}
+
+	protected void sliderValueChanged(int value) {
+		deckPanel.showWidget(value);
+	}
+
+	private Panel createTestDeckPanel() {
+		FocusPanel focusPanel = new FocusPanel();
+		focusPanel.addKeyDownHandler(new KeyDownHandler() {
+			@Override
+			public void onKeyDown(KeyDownEvent event) {
+				handleKeyDown(event);
+			}
+		});
+		
+		focusPanel.addStyleName("clearOutline");
+		
+		deckPanel = new DeckPanel();
+		deckPanel.addStyleName("deckPanel");
+		
+		preloadImages(deckPanel);
+		
+		deckPanel.setAnimationEnabled(true);
+		
+		focusPanel.add(deckPanel);
+		return focusPanel;
+	}
+	
+	//delegate deckPanel keyEvent
+	private void handleKeyDown(KeyDownEvent event) {
+		barWidget.actionKeyDown(event);
+	}
+
+	private void preloadImages(DeckPanel deckPanel) {
+		int imagesCount = 4;
+		for(int i=0; i&lt;imagesCount ; ++i){
+			StringBuilder builder = new StringBuilder("images/test2/image").append(i+1).append(".png");
+			Image image = new Image(builder.toString());
+			Image.prefetch(builder.toString());
+			
+			SimplePanel panel = new SimplePanel(image);
+			panel.addStyleName("centerContent");
+			
+			deckPanel.add(panel);
+		}
+	}
+
+}
+
+sbThemes.css
+...
+/*  sbTheme1       */
+
+.sbTheme1{
+ 	background-color: #333333; 
+	width: 300px;
+	height: 17px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+ /* horiz */
+.sbTheme1 .sbHorizontal{
+	display: inline-block;
+}
+
+.sbTheme1 .sbPrevButton{
+	display: none;
+}
+
+.sbTheme1 .sbNextButton{
+	display: none;
+}
+
+ /* vertical */
+.sbTheme1 .sbVertical{
+	display:block;
+}
+
+.sbTheme1 .sbHorizontal .sbMarkBarContainer{
+ 	display: flex; 
+}
+
+.sbTheme1 .sbMarkWrapper{
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid #FFFFFF;
+    border-radius: 10px;
+    cursor: pointer;
+    display: inline-block;
+    height: 10px;
+    margin: 1px;
+    text-indent: -999px;
+    width: 10px;
+	outline: 0; 
+}
+
+.sbTheme1 .sbMarkNumber{
+	display: none;
+}
+
+.sbTheme1 .sbMarkSelected {
+    background-color: #FFFFFF;
+    height: 12px;
+    margin: 0;
+    width: 12px;
+}
+...
+				</code></pre>
+			</div>
+			
+			<p>
+				if they only have one theme in their css or only one orientation, then they can omit the theme- and / or orientation-selector.<br />
+			</p>
+			<div class="scroll">
+				<pre>
+.sbMarkBarContainer{
+	... 
+}
+				</pre>
+			</div>
+			
+		</div>
+		
+		<div class="colRight">
+			<div id="test1" ></div>
+		</div>
+	
+	</section>  <!-- end section example1 -->
+
+	<section class="exampleWrapper">
+		<div class="colLeft">
+			<h4>Example 2</h4>
+			<p>You can use another constructor </p>
+			
+			<div class="scroll">
+				<pre>
+public SliderBarWidget(int markersCount, int value, boolean cyclic, int orientation, String css_theme)
+
+SliderBarWidget barWidget2 = new SliderBarWidget(count, 0, true, 
+				AbstractSliderBar.ORIENTATION_VERICAL, "sbTheme2");
+
+				</pre>
+			</div>
+				
+			<p>
+				CSS example theme "sbTheme2"
+			</p>
+
+			
+			<div class="scroll">
+				<pre><code >
+sbThemes.css
+...
+/* sbTheme2, next/prev buttons, numbered mark */
+.sbTheme2{
+	text-align: center;
+}
+
+ /* horiz */
+.sbTheme2 .sbHorizontal{
+	display: inline-flex;
+	
+	height: 20px;
+	
+}
+
+.sbTheme2 .sbButton{
+	border-radius: 7px; 
+	width: 0px;
+	height: 0px;
+	border-style: solid;
+    cursor: pointer;
+	outline: 0;
+	
+}
+
+
+.sbTheme2 .sbHorizontal .sbPrevButton{
+	border-width: 10px 20px 10px 0;
+	border-color: transparent #ff6666 transparent transparent;
+	
+	margin-right: 5px; 
+}
+
+
+/* hover */ 
+.sbTheme2 .sbHorizontal .sbPrevButton:HOVER{
+	border-color: transparent #ff0000 transparent transparent;
+}
+
+.sbTheme2 .sbHorizontal .sbNextButton{
+	border-width: 10px 0 10px 20px;
+	border-color: transparent transparent transparent #ff6666;
+	margin-left: 5px; 
+}
+
+
+/* hover */ 
+.sbTheme2 .sbHorizontal .sbNextButton:HOVER{
+	border-color: transparent transparent transparent #ff0000;
+}
+
+/* down ACTIVE  */
+.sbTheme2 .sbButton:ACTIVE{
+  	position:relative;
+	top:1px;
+}
+
+
+
+ /* vertical */
+.sbTheme2 .sbVertical{
+	display:block;
+}
+
+.sbTheme2 .sbVertical .sbPrevButton{
+	border-width: 0 10px 20px 10px;
+	border-color: transparent transparent #ff6666 transparent;
+	margin-bottom: 5px; 
+}
+
+/* hover */ 
+.sbTheme2 .sbVertical .sbPrevButton:HOVER{
+	border-color: transparent transparent #ff0000 transparent;
+}
+
+
+.sbTheme2 .sbVertical .sbNextButton{
+	border-width: 20px 10px 0 10px;
+	border-color: #ff6666 transparent transparent transparent;
+	margin-top: 5px; 
+	
+}
+
+/* hover */ 
+.sbTheme2 .sbVertical .sbNextButton:HOVER{
+	border-color: #ff0000 transparent transparent transparent ;
+}
+
+
+.sbTheme2 .sbHorizontal .sbMarkBarContainer{
+ 	display: flex; 
+}
+
+.sbTheme2 .sbMarkNumber{
+ 	text-align: center;
+	vertical-align: middle;	 
+}
+
+.sbTheme2 .sbMarkWrapper{
+ 	width: 20px;
+ 	height: 20px;
+
+    cursor: pointer;
+	outline: 0; 
+}
+
+
+.sbTheme2 .sbMarkSelected {
+   	font-weight: bolder;
+	border: 1px solid red;
+	border-radius: 10px;
+	border-style: dashed;
+	box-shadow: 5px 5px 4px #888888; 
+}
+...
+				</code></pre>
+			</div>
+			
+			
+		</div>
+		
+		<div class="colRight">
+			<div id="test2" ></div>
+		</div>
+	
+	</section>  <!-- end section example2 -->
+
+	<section class="exampleWrapper">
+		<div class="colLeft">
+			<h4>Example 3</h4>
+		
+			<p>
+				You can place additional prev and next buttons.<br />
+				Place a html component with a given id and call barWidget.bindAdditionalPrevNextButtons();
+			</p>
+			
+			<div class="scroll">
+				<pre>
+&lt;table class=&quot;addButtonsTable&quot;&gt;<br/>	&lt;tr&gt;<br/>		&lt;td class='left'&gt;&lt;span id=&quot;sbAdditionalPrevButt&quot; class=&quot;additionalButton &quot;&gt;Previous&lt;/span&gt;&lt;/td&gt;<br/>		&lt;td class='right'&gt;&lt;span id=&quot;sbAdditionalNextButt&quot; class=&quot;additionalButton&quot; &gt;Next&lt;/span&gt;&lt;/td&gt;<br/>	&lt;/tr&gt;<br/>&lt;/table&gt;<br/>
+				</pre>
+			</div>
+				
+			<p>
+				Alternatively you can use from your Java code sliderBar.setValue (int);			
+			</p>
+			
+		</div>
+		
+		<div class="colRight">
+			<div id="test3" style="height: 300px;"></div>
+				<table class="addButtonsTable">
+					<tr>
+						<td class='left'><span id="sbAdditionalPrevButt" class="additionalButton ">Previous</span></td>
+						<td class='right'><span id="sbAdditionalNextButt" class="additionalButton" >Next</span></td>
+					</tr>
+				</table>
+		</div>
+	
+	</section>  <!-- end section example3 -->
+
+	<section class="exampleWrapper" style="margin-top: 100px;">
+		<div class="colLeft">
+			<h4>Example 4</h4>
+			<p>Theme with images </p>
+			
+			
+			<div class="scroll">
+				<pre><code >
+sbThemes.css
+...
+.sbTheme4{
+	margin-bottom: 20px;
+	outline: 0;
+}
+
+ /* horiz */
+.sbTheme4 .sbHorizontal{
+	text-align: center;
+	position: relative;
+}
+
+.sbTheme4 .sbPrevButton{
+	width: 32px;
+	height: 32px;
+	display: inline-block;
+	vertical-align: middle;
+	
+	background-image: url("images/theme4/left.png");
+	outline: 0;
+}
+
+
+/* hover */ 
+.sbTheme4 .sbPrevButton:HOVER{
+}
+
+.sbTheme4 .sbNextButton{
+	width: 32px;
+	height: 32px;
+	display: inline-block;
+	vertical-align: middle;
+	
+	background-image: url("images/theme4/right.png");
+	outline: 0;
+}
+
+
+/* hover */ 
+.sbTheme4 .sbNextButton:HOVER{
+}
+
+/* down ACTIVE  */
+.sbTheme4 .sbButton:ACTIVE{
+}
+
+
+
+.sbTheme4 .sbMarkBarContainer{
+	position: relative;
+	top: 1px;
+	
+	display: inline-block;
+	vertical-align: middle;
+	line-height: 0;
+	
+	height: 14px;
+	background-image: url("images/theme4/line14.png");
+	background-repeat: repeat-x;
+	
+	border-radius: 36%; 
+}
+
+.sbTheme4 .sbMarkNumber{
+	display: none;
+}
+
+.sbTheme4 .sbMarkWrapper{
+	position: relative;
+	top: 4px;
+
+	background-color: #417300;
+	width: 12px;
+	height: 12px;
+	
+	display: inline-block;
+	outline: 0;
+	
+	margin: 1px 10px ;
+	border-radius: 50%; 
+}
+
+
+.sbTheme4 .sbMarkSelected {
+	position: relative;
+	top: 18px;
+ 	background-color: transparent; 
+	background-image: url("images/theme4/drop12_1.png");
+	height: 12px;
+	transition: all 0.5s;
+}
+...
+				</code></pre>
+			</div>
+			
+			
+		</div>
+		
+		<div class="colRight">
+			<div id="test4" ></div>
+		</div>
+	
+	</section>  <!-- end section example4 -->
+
+
+  </body>
+</html>
