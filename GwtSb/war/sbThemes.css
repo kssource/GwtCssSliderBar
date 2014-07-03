@@ -308,7 +308,49 @@
 	box-shadow: 5px 5px 4px #888888; 
 }
 
+
+
 /* ////////////////////////////////////////////////////////////// */
+	/* example 3 additiomal buttons */
+.example3Button{
+	position: absolute;
+	top: 130px;
+	width: 37px;
+	height: 40px;
+	z-index: 100;
+}
+
+
+.example3LeftButton{
+	left: -22px;
+	background-image: url('images/example3/leftArEx3.png');
+}
+
+.example3RightButton{
+	left: 285px;
+	background-image: url('images/example3/rightArEx3.png');
+}
+
+.example3LeftButton:HOVER{
+	background-image: url('images/example3/leftArEx3_2.png');
+}
+
+.example3RightButton:HOVER{
+	background-image: url('images/example3/rightArEx3_2.png');
+	
+}
+	
+.example3LeftButton:ACTIVE{
+	left: -23px;
+}
+
+.example3RightButton:ACTIVE{
+	left: 286px;
+	
+}
+
+/* ////////////////////////////////////////////////////////////// */
+
 
 .sbTheme4{
 	margin-bottom: 20px;
@@ -378,26 +420,27 @@
 
 .sbTheme4 .sbMarkWrapper{
 	position: relative;
-	top: 4px;
-
-	background-color: #417300;
+	margin: 1px 10px ;
 	width: 12px;
 	height: 12px;
-	
 	display: inline-block;
 	outline: 0;
-	
-	margin: 1px 10px ;
-	border-radius: 50%; 
+
+
 }
 
 
 .sbTheme4 .sbMarkSelected {
-	position: relative;
 	top: 18px;
  	background-color: transparent; 
 	background-image: url("images/theme4/drop12_1.png");
-	height: 12px;
+	transition: all 0.5s;
+}
+
+.sbTheme4 .sbMarkUnSelected {
+	top: 4px;
+	background-color: #417300;
+	border-radius: 50%; 
 	transition: all 0.5s;
 }
 

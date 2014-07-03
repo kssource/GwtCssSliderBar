@@ -419,7 +419,7 @@ sbThemes.css
 	
 	</section>  <!-- end section example2 -->
 
-	<section class="exampleWrapper">
+	<section class="exampleWrapper sectionExample3">
 		<div class="colLeft">
 			<h4>Example 3</h4>
 		
@@ -430,7 +430,7 @@ sbThemes.css
 			
 			<div class="scroll">
 				<pre>
-&lt;table class=&quot;addButtonsTable&quot;&gt;<br/>	&lt;tr&gt;<br/>		&lt;td class='left'&gt;&lt;span id=&quot;sbAdditionalPrevButt&quot; class=&quot;additionalButton &quot;&gt;Previous&lt;/span&gt;&lt;/td&gt;<br/>		&lt;td class='right'&gt;&lt;span id=&quot;sbAdditionalNextButt&quot; class=&quot;additionalButton&quot; &gt;Next&lt;/span&gt;&lt;/td&gt;<br/>	&lt;/tr&gt;<br/>&lt;/table&gt;<br/>
+		&lt;div class=&quot;colRight&quot;&gt;<br/>			&lt;span id=&quot;sbAdditionalPrevButt&quot; class=&quot;example3Button example3LeftButton&quot; &gt;&lt;/span&gt;<br/>			&lt;span id=&quot;sbAdditionalNextButt&quot; class=&quot;example3Button example3RightButton&quot; &gt;&lt;/span&gt;<br/><br/>			&lt;div id=&quot;test3&quot; style=&quot;height: 300px; position: relative;&quot;&gt;<br/>			&lt;/div&gt;<br/>		&lt;/div&gt;
 				</pre>
 			</div>
 				
@@ -441,15 +441,12 @@ sbThemes.css
 		</div>
 		
 		<div class="colRight">
-			<div id="test3" style="height: 300px;"></div>
-				<table class="addButtonsTable">
-					<tr>
-						<td class='left'><span id="sbAdditionalPrevButt" class="additionalButton ">Previous</span></td>
-						<td class='right'><span id="sbAdditionalNextButt" class="additionalButton" >Next</span></td>
-					</tr>
-				</table>
-		</div>
-	
+			<span id="sbAdditionalPrevButt" class="example3Button example3LeftButton" ></span>
+			<span id="sbAdditionalNextButt" class="example3Button example3RightButton" ></span>
+
+			<div id="test3" style="height: 300px; position: relative;">
+			</div>
+		</div>	
 	</section>  <!-- end section example3 -->
 
 	<section class="exampleWrapper" style="margin-top: 100px;">
@@ -530,26 +527,27 @@ sbThemes.css
 
 .sbTheme4 .sbMarkWrapper{
 	position: relative;
-	top: 4px;
-
-	background-color: #417300;
+	margin: 1px 10px ;
 	width: 12px;
 	height: 12px;
-	
 	display: inline-block;
 	outline: 0;
-	
-	margin: 1px 10px ;
-	border-radius: 50%; 
+
+
 }
 
 
 .sbTheme4 .sbMarkSelected {
-	position: relative;
 	top: 18px;
  	background-color: transparent; 
 	background-image: url("images/theme4/drop12_1.png");
-	height: 12px;
+	transition: all 0.5s;
+}
+
+.sbTheme4 .sbMarkUnSelected {
+	top: 4px;
+	background-color: #417300;
+	border-radius: 50%; 
 	transition: all 0.5s;
 }
 ...

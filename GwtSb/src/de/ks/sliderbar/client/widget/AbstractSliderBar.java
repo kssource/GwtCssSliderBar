@@ -267,7 +267,9 @@ public abstract class AbstractSliderBar extends FocusPanel{
 			Panel mark = markArr.get(i);
 			if(i == currentValue){
 				mark.addStyleName(CssNames.SB_MARK_SELECTED);
+				mark.removeStyleName(CssNames.SB_MARK_UNSELECTED);
 			}else{
+				mark.addStyleName(CssNames.SB_MARK_UNSELECTED);
 				mark.removeStyleName(CssNames.SB_MARK_SELECTED);
 			}
 		}

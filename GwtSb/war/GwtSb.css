@@ -55,9 +55,12 @@ div.scroll {
 
 .exampleWrapper{
 	position: relative;
-	
-	
-}  
+}
+
+.sectionExample3{
+	margin-right: 10px;	
+}
+  
 .colLeft{
 	margin-right: 350px;
 	
