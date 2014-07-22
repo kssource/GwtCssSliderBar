@@ -2,10 +2,15 @@ GwtCssSliderBar
 ===============
 GwtCssSliderBar is simple GWT component that is completely styled with css.
 
-![screenshot](GwtSb/screenshot/sb1_s.png)
+View live demo http://ks-demos.appspot.com/ 
+or download project and start **GwtSb/war/GwtSb.html** in browser.
 
-![screenshot](GwtSb/screenshot/sb2_s.png)
+![screenshot](GwtSb/screenshot/ex1_s.png)
 
-![screenshot](GwtSb/screenshot/sb4_s.png)
+![screenshot](GwtSb/screenshot/ex2_s.png)
 
-For examples/live demo download project and start **GwtSb/war/GwtSb.html** in browser.
+![screenshot](GwtSb/screenshot/ex3_s.png)
+
+![screenshot](GwtSb/screenshot/ex4_s.png)
+
+
