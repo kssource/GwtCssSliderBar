@@ -1,5 +1,7 @@
 package de.ks.sliderbar.client;
 
+import java.util.List;
+
 import com.google.gwt.event.dom.client.KeyDownEvent;
 import com.google.gwt.event.dom.client.KeyDownHandler;
 import com.google.gwt.user.client.ui.DeckPanel;
@@ -9,9 +11,9 @@ import com.google.gwt.user.client.ui.Panel;
 import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
-import de.ks.sliderbar.client.widget.SliderBarWidget;
-import de.ks.sliderbar.client.widget.SliderValueChangedEvent;
-import de.ks.sliderbar.client.widget.SliderValueChangedListener;
+import de.ks.sliderbar.client.sbwidget.SliderBarWidget;
+import de.ks.sliderbar.client.sbwidget.SliderValueChangedEvent;
+import de.ks.sliderbar.client.sbwidget.SliderValueChangedListener;
 
 public class Test1 extends VerticalPanel{
 
@@ -78,17 +80,23 @@ public class Test1 extends VerticalPanel{
 
 	private void preloadImages(DeckPanel deckPanel) {
 		int imagesCount = 4;
+		List<String> urls = SbShared.getRandomImageUrl(256, 256);
+		
 		for(int i=0; i<imagesCount ; ++i){
-			StringBuilder builder = new StringBuilder("images/test2/image").append(i+1).append(".png");
-			Image image = new Image(builder.toString());
-			Image.prefetch(builder.toString());
+			// build image url
+//			StringBuilder builder = new StringBuilder("images/sb/shared/image").append(i+1).append(".png");
+//			Image image = new Image(builder.toString());
+//			Image.prefetch(builder.toString());
+
+			String url = urls.get(i);
+			Image image = new Image(url);
+			Image.prefetch(url);
 			
 			SimplePanel panel = new SimplePanel(image);
 			panel.addStyleName("centerContent");
 			
 			deckPanel.add(panel);
 		}
-		
 	}
 
 

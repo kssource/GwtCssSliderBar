@@ -1,4 +1,4 @@
-package de.ks.sliderbar.client.widget;
+package de.ks.sliderbar.client.sbwidget;
 
 import java.util.ArrayList;
 
@@ -195,6 +195,7 @@ public abstract class AbstractSliderBar extends FocusPanel{
 	
 	public void actionKeyDown(KeyDownEvent event) {
 		event.preventDefault();
+		event.stopPropagation();
 		int kCode = event.getNativeKeyCode();
 //		System.out.println("actionKeyDown, keyCode: "+kCode);
 		switch (kCode) {

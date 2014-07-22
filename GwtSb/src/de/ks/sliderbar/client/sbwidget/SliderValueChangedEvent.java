@@ -1,4 +1,4 @@
-package de.ks.sliderbar.client.widget;
+package de.ks.sliderbar.client.sbwidget;
 
 public class SliderValueChangedEvent {
 

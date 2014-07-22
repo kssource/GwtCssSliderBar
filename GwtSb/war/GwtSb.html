@@ -22,7 +22,7 @@
     <!--                                           -->
     <!-- Any title is fine                         -->
     <!--                                           -->
-    <title>Web Application Starter Project</title>
+    <title>GWT SliderBar</title>
     
     <!--                                           -->
     <!-- This script loads your compiled module.   -->
@@ -430,7 +430,7 @@ sbThemes.css
 			
 			<div class="scroll">
 				<pre>
-		&lt;div class=&quot;colRight&quot;&gt;<br/>			&lt;span id=&quot;sbAdditionalPrevButt&quot; class=&quot;example3Button example3LeftButton&quot; &gt;&lt;/span&gt;<br/>			&lt;span id=&quot;sbAdditionalNextButt&quot; class=&quot;example3Button example3RightButton&quot; &gt;&lt;/span&gt;<br/><br/>			&lt;div id=&quot;test3&quot; style=&quot;height: 300px; position: relative;&quot;&gt;<br/>			&lt;/div&gt;<br/>		&lt;/div&gt;
+&lt;table class=&quot;addButtonsTable&quot;&gt;<br/>	&lt;tr&gt;<br/>		&lt;td class='left'&gt;&lt;span id=&quot;sbAdditionalPrevButt&quot; class=&quot;additionalButton &quot;&gt;Previous&lt;/span&gt;&lt;/td&gt;<br/>		&lt;td class='right'&gt;&lt;span id=&quot;sbAdditionalNextButt&quot; class=&quot;additionalButton&quot; &gt;Next&lt;/span&gt;&lt;/td&gt;<br/>	&lt;/tr&gt;<br/>&lt;/table&gt;<br/>
 				</pre>
 			</div>
 				
@@ -446,7 +446,8 @@ sbThemes.css
 
 			<div id="test3" style="height: 300px; position: relative;">
 			</div>
-		</div>	
+		</div>
+	
 	</section>  <!-- end section example3 -->
 
 	<section class="exampleWrapper" style="margin-top: 100px;">
@@ -460,7 +461,7 @@ sbThemes.css
 sbThemes.css
 ...
 .sbTheme4{
-	margin-bottom: 20px;
+	margin-bottom: 25px;
 	outline: 0;
 }
 
@@ -476,13 +477,17 @@ sbThemes.css
 	display: inline-block;
 	vertical-align: middle;
 	
-	background-image: url("images/theme4/left.png");
+	background-image: url("images/theme4/img/ArrowL.png");
 	outline: 0;
+	
+	position: relative;
+	left: 9px;
 }
 
 
 /* hover */ 
 .sbTheme4 .sbPrevButton:HOVER{
+ 	background-image: url("images/theme4/img/ArrowLHover.png"); 
 }
 
 .sbTheme4 .sbNextButton{
@@ -491,31 +496,38 @@ sbThemes.css
 	display: inline-block;
 	vertical-align: middle;
 	
-	background-image: url("images/theme4/right.png");
+	background-image: url("images/theme4/img/ArrowR.png");
 	outline: 0;
+	
+	position: relative;
+	left: -9px;
+	
 }
 
 
 /* hover */ 
 .sbTheme4 .sbNextButton:HOVER{
+ 	background-image: url("images/theme4/img/ArrowRHover.png"); 
 }
+
 
 /* down ACTIVE  */
 .sbTheme4 .sbButton:ACTIVE{
+	top: 1px;
 }
 
 
 
 .sbTheme4 .sbMarkBarContainer{
 	position: relative;
-	top: 1px;
+	top: 9px;
 	
 	display: inline-block;
 	vertical-align: middle;
 	line-height: 0;
 	
 	height: 14px;
-	background-image: url("images/theme4/line14.png");
+	background-image: url("images/theme4/img/lineHalf14.png");
 	background-repeat: repeat-x;
 	
 	border-radius: 36%; 
@@ -525,30 +537,33 @@ sbThemes.css
 	display: none;
 }
 
+/* ////////////////////////////////////////////////////////////// */
+
+
 .sbTheme4 .sbMarkWrapper{
 	position: relative;
-	margin: 1px 10px ;
 	width: 12px;
 	height: 12px;
 	display: inline-block;
 	outline: 0;
+	margin: 1px 10px ;
+	border-radius: 50%; 
 
-
-}
-
-
-.sbTheme4 .sbMarkSelected {
-	top: 18px;
- 	background-color: transparent; 
-	background-image: url("images/theme4/drop12_1.png");
-	transition: all 0.5s;
 }
 
 .sbTheme4 .sbMarkUnSelected {
 	top: 4px;
 	background-color: #417300;
-	border-radius: 50%; 
-	transition: all 0.5s;
+	
+	transition:  all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+}
+
+.sbTheme4 .sbMarkSelected {
+	top: 18px;
+ 	background-color: transparent; 
+	background-image: url("images/theme4/img/drop12_1.png");
+	
+	transition:  all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
 }
 ...
 				</code></pre>

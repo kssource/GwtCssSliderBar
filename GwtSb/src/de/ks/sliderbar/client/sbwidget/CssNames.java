@@ -1,4 +1,4 @@
-package de.ks.sliderbar.client.widget;
+package de.ks.sliderbar.client.sbwidget;
 
 public class CssNames {
 
@@ -19,7 +19,6 @@ public class CssNames {
 
 	public static final String SB_MARK_SELECTED = "sbMarkSelected";
 	public static final String SB_MARK_UNSELECTED = "sbMarkUnSelected";
-
 
 	public static final String SB_ADDITIONAL_PREV_BUTTON_ID = "sbAdditionalPrevButt";
 	public static final String SB_ADDITIONAL_NEXT_BUTTON_ID = "sbAdditionalNextButt";
